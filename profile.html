@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 600px; margin: 50px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #0056b3; }
+        p { font-size: 1.1em; line-height: 1.6; }
+        .logout-button { display: inline-block; background-color: #dc3545; color: white; padding: 10px 20px; margin-top: 20px; border-radius: 5px; text-decoration: none; transition: background-color 0.3s ease; }
+        .logout-button:hover { background-color: #c82333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido, <%= user.displayName %>!</h1>
+        <p>Email: <%= user.email %></p>
+        <p>Estado de verificación: <%= user.isVerified ? 'Verificado' : 'No verificado' %></p>
+        <a href="/auth/logout" class="logout-button">Cerrar Sesión</a>
+    </div>
+</body>
+</html>
