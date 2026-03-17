@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 400px; margin: 50px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #0056b3; }
+        form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+        input[type="email"], input[type="password"] { padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease; }
+        button:hover { background-color: #0056b3; }
+        .message { margin-top: 15px; padding: 10px; border-radius: 4px; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .oauth-buttons { margin-top: 20px; }
+        .oauth-buttons a { display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Iniciar Sesión</h1>
+        <% if (error) { %>
+            <div class="message error"><%= error %></div>
+        <% } %>
+        <% if (success) { %>
+            <div class="message success"><%= success %></div>
+        <% } %>
+        <form action="/auth/login" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="oauth-buttons">
+            <a href="/auth/google">Login con Google</a>
+            <a href="/auth/facebook">Login con Facebook</a>
+        </div>
+        <p>¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p>
+        <p>¿Olvidaste tu contraseña? <a href="/forgot-password">Recuperar contraseña</a></p>
+    </div>
+</body>
+</html>
